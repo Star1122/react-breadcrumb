@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-export default class Project extends Component {
+export default class Projects extends Component {
   render() {
     return (
       <div>
-        Project
+        Projects
       </div>
     );
   }

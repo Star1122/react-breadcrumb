@@ -1,25 +1,47 @@
 import React from 'react';
-import {IndexRoute, Route} from 'react-router';
+import { IndexRoute, Route } from 'react-router';
 
 import App from './containers/app/App';
+import Projects from './containers/project/Projects';
 import Project from './containers/project/Project';
+import ProjectData from './containers/project/ProjectData';
+import ProjectKeywords from './containers/project/ProjectKeywords';
+import ProjectSegments from './containers/project/ProjectSegments';
+import ProjectLists from './containers/project/ProjectLists';
+import ProjectSettings from './containers/project/ProjectSettings';
 
-function asyncComponent(component) {
-  return process.env.IS_BROWSER && process.env.NODE_ENV === 'production'
-    ? component
-    : (_r, cb) => cb(null, component);
-}
+const routes = (
+  <Route path="/" component={App}>
+    <IndexRoute component={Projects} />
 
-export default function createRoutes(getState) {
-  return (
-    <Route path="/">
-      <IndexRoute getComponent={asyncComponent(App)} />
+    <Route path="/projects/:projectId">
+      <IndexRoute component={Project} />
 
-      <Route getComponent={asyncComponent(Project)} path="/projects" />
+      <Route path="data" component={ProjectData}>
+        <IndexRoute component={ProjectData} />
 
-      <Route path="/projects/:projectId">
-        <IndexRoute getComponent={asyncComponent(Project)} />
+        <Route
+          path="keywords"
+          component={ProjectKeywords}
+        />
       </Route>
+
+      <Route
+        component={ProjectSegments}
+        path="/segments"
+      />
+
+      <Route
+        component={ProjectLists}
+        path="/lists"
+      />
+
+      <Route
+        component={ProjectSettings}
+        path="/settings"
+      />
     </Route>
-  );
-}
+  </Route>
+);
+
+export default routes;
