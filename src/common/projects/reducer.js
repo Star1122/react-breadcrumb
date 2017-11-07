@@ -60,8 +60,7 @@ export default function projectsReducer(state = initialState, action) {
         ...state,
         current
       };
-      break;
+    default:
+      return state;
   }
-
-  return state;
 }

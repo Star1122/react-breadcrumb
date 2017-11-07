@@ -1,12 +1,12 @@
 const routes = {
-  '/': 'Home',
-  '/projects': 'Projects Page',
-  '/projects/:projectId': 'Project Page',
-  '/projects/:projectId/data/keywords': 'Project Keywords Page',
-  '/projects/:projectId/data/keywords/:keyword': 'Project Keyword Page',
-  '/projects/:projectId/lists': 'Project Lists Page',
-  '/projects/:projectId/segments': 'Project Segments Page',
-  '/projects/:projectId/settings': 'Project Settings Page'
+  '/': 'Dashboard',
+  '/projects': 'Projects',
+  '/projects/:projectId': 'Project',
+  '/projects/:projectId/data/keywords': 'Project Keywords',
+  '/projects/:projectId/data/keywords/:keyword': 'Project Keyword',
+  '/projects/:projectId/lists': 'Project Lists',
+  '/projects/:projectId/segments': 'Project Segments',
+  '/projects/:projectId/settings': 'Project Settings'
 };
 
 export default routes;

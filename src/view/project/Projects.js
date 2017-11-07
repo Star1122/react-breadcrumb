@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import {NavLink} from 'react-router-dom';
 
 import mapDispatchToProps from '../../common/app/mapDispatchToProps';
 import mapStateToProps from '../../common/app/mapStateToProps';
@@ -12,8 +13,7 @@ class Projects extends Component {
     this.clickProject = this.clickProject.bind(this);
   }
 
-  clickProject(e, id) {
-    e.preventDefault();
+  clickProject(id) {
     this.props.actions.navigateToProject(id);
   };
 
@@ -29,12 +29,12 @@ class Projects extends Component {
             </div>
 
             <div className="card-body text-center p-3">
-              <a className="btn btn-outline-primary"
-                 href={'/projects/' + project.id}
-                 onClick={(e) => this.clickProject(e, project.id)}
+              <NavLink className="btn btn-outline-primary"
+                 to={'/projects/' + project.id}
+                 onClick={() => this.clickProject(project.id)}
               >
                 Visit
-              </a>
+              </NavLink>
             </div>
           </div>
         </div>

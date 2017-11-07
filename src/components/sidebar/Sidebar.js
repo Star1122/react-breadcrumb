@@ -12,8 +12,6 @@ export default class Sidebar extends Component {
       }
     });
 
-    console.log(curProject);
-
     return (
       <div className="sidebar">
         <nav className="sidebar-nav">
@@ -24,35 +22,35 @@ export default class Sidebar extends Component {
                   {curProject.title}
                 </li>
                 <li className="nav-item">
-                  <NavLink to={'/projects/' + projectId}
+                  <NavLink exact={true} to={'/projects/' + projectId}
                            className="nav-link" activeClassName="active"
                   >
                     <i className="fa fa-tachometer" aria-hidden="true"/> Overview
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink to={'/projects/' + projectId + '/data/keywords'}
+                  <NavLink exact={true} to={'/projects/' + projectId + '/data/keywords'}
                            className="nav-link" activeClassName="active"
                   >
                     <i className="fa fa-folder-open-o" aria-hidden="true"/> Data
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink to={'/projects/' + projectId + '/segments'}
+                  <NavLink exact={true} to={'/projects/' + projectId + '/segments'}
                            className="nav-link" activeClassName="active"
                   >
                     <i className="fa fa-pie-chart" aria-hidden="true"/> Segments
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink to={'/projects/' + projectId + '/lists'}
+                  <NavLink exact={true} to={'/projects/' + projectId + '/lists'}
                            className="nav-link" activeClassName="active"
                   >
                     <i className="fa fa-list" aria-hidden="true"/> Lists
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink to={'/projects/' + projectId + '/settings'}
+                  <NavLink exact={true} to={'/projects/' + projectId + '/settings'}
                            className="nav-link" activeClassName="active"
                   >
                     <i className="fa fa-cog" aria-hidden="true"/> Settings
@@ -68,12 +66,12 @@ export default class Sidebar extends Component {
               Global
             </li>
             <li className="nav-item">
-              <NavLink to={'/projects'} className="nav-link" activeClassName="active">
+              <NavLink exact={true} to={'/projects'} className="nav-link" activeClassName="active">
                 <i className="fa fa-folder-o" aria-hidden="true"/> Projects
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to={'#'} className="nav-link" activeClassName="active">
+              <NavLink exact={true} to={'#'} className="nav-link" activeClassName="active">
                 <i className="fa fa-sign-out" aria-hidden="true"/> Logout
               </NavLink>
             </li>
