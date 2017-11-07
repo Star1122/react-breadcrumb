@@ -12,6 +12,8 @@ export default class Sidebar extends Component {
       }
     });
 
+    console.log(curProject);
+
     return (
       <div className="sidebar">
         <nav className="sidebar-nav">
@@ -19,35 +21,40 @@ export default class Sidebar extends Component {
             ? (
               <ul className="nav">
                 <li className="nav-title">
-                  Project Title
+                  {curProject.title}
                 </li>
                 <li className="nav-item">
-                  <NavLink to={'/projects/' + this.props.projects.current.projectId} className="nav-link"
-                           activeClassName="active">
+                  <NavLink to={'/projects/' + projectId}
+                           className="nav-link" activeClassName="active"
+                  >
                     <i className="fa fa-tachometer" aria-hidden="true"/> Overview
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink to={'/projects/' + this.props.projects.current.projectId + '/data/keywords'}
-                           className="nav-link" activeClassName="active">
+                  <NavLink to={'/projects/' + projectId + '/data/keywords'}
+                           className="nav-link" activeClassName="active"
+                  >
                     <i className="fa fa-folder-open-o" aria-hidden="true"/> Data
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink to={'/projects/' + this.props.projects.current.projectId + '/segments'} className="nav-link"
-                           activeClassName="active">
+                  <NavLink to={'/projects/' + projectId + '/segments'}
+                           className="nav-link" activeClassName="active"
+                  >
                     <i className="fa fa-pie-chart" aria-hidden="true"/> Segments
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink to={'/projects/' + this.props.projects.current.projectId + '/lists'} className="nav-link"
-                           activeClassName="active">
+                  <NavLink to={'/projects/' + projectId + '/lists'}
+                           className="nav-link" activeClassName="active"
+                  >
                     <i className="fa fa-list" aria-hidden="true"/> Lists
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink to={'/projects/' + this.props.projects.current.projectId + '/settings'} className="nav-link"
-                           activeClassName="active">
+                  <NavLink to={'/projects/' + projectId + '/settings'}
+                           className="nav-link" activeClassName="active"
+                  >
                     <i className="fa fa-cog" aria-hidden="true"/> Settings
                   </NavLink>
                 </li>

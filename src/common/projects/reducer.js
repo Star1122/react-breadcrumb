@@ -1,3 +1,5 @@
+import * as actionTypes from '../actionTypes';
+
 const initialState = {
   lists: [
     {
@@ -50,5 +52,16 @@ const initialState = {
 };
 
 export default function projectsReducer(state = initialState, action) {
+  switch (action.type) {
+    case actionTypes.NAVIGATE_TO_PROJECT:
+      const current = state.current;
+      current.projectId = action.payload;
+      return {
+        ...state,
+        current
+      };
+      break;
+  }
+
   return state;
 }
