@@ -1,36 +1,27 @@
 import React from 'react';
-import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import { Router } from 'react-router-dom';
-import createHistory from 'history/createBrowserHistory';
+import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
+import { Router, Route, Switch } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 
 import configureStore from './common/configureStore';
-import routes from './routes';
+
+// Containers
+import App from './containers/app/App';
 
 const store = configureStore();
 
-const history = createHistory();
+const history = createBrowserHistory();
 
-// Get the current location.
-const location = history.location;
-
-// Listen for changes to the current location.
-const unlisten = history.listen((location, action) => {
-  // location is an object like window.location
-  console.log(action, location.pathname, location.state)
-});
-
-// Use push, replace, and go to navigate around.
-history.push('/projects', { });
-
-// To stop listening, call the function returned from listen().
-unlisten();
-
-render(
-  <Provider store={store}>
-    <Router
-      history={history}
-      routes={routes} />
-  </Provider>
-  , document.getElementById('root')
+ReactDOM.render(
+  (
+    <Provider store={store}>
+      <Router history={history}>
+        <Switch>
+          <Route path="/" name="Home" component={App} />
+        </Switch>
+      </Router>
+    </Provider>
+  ),
+  document.getElementById('root')
 );
