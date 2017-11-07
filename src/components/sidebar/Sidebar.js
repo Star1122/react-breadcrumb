@@ -6,7 +6,7 @@ export default class Sidebar extends Component {
     const {projectId} = this.props.projects.current;
 
     let curProject;
-    this.props.projects.lists.forEach(function (project) {
+    this.props.projects.lists.forEach((project) => {
       if (project.id === projectId) {
         curProject = project;
       }
